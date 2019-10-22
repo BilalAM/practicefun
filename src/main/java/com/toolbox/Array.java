@@ -12,7 +12,7 @@ public class Array {
      */
 
     public static <T> T[] grow(T[] arrayToGrow, int growth) {
-        T[] newArray = (T[]) new Object[arrayToGrow.length + growth];
+        T[] newArray = (T[]) java.lang.reflect.Array.newInstance(arrayToGrow.getClass().getComponentType(), arrayToGrow.length + growth);
         for (int indexOfOldArray = 0; indexOfOldArray < arrayToGrow.length; indexOfOldArray++) {
             newArray[indexOfOldArray] = arrayToGrow[indexOfOldArray];
         }

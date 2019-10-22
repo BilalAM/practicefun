@@ -2,20 +2,21 @@ package com.datastructures;
 
 import com.toolbox.Array;
 
-public class Queue {
+
+public class GenericQueue<T> {
 
     private static final int GROWTH_FACTOR = 1;
-    private Integer[] innerCache;
+    private T[] innerCache;
     private int pointer = -1;
     private int head;
 
-    public Queue() {
-        innerCache = new Integer[1];
+    public GenericQueue() {
+        innerCache = (T[]) new Object[1];
         pointer++;
         head = 0;
     }
 
-    public void enqueue(int value) {
+    public void enqueue(T value) {
         if (innerCache.length == pointer) {
             // we are at the end
             // we need to grow moooaaree !
@@ -31,15 +32,15 @@ public class Queue {
             // we dont want to remove from
             // an already empty queue !
         }
-        innerCache[head] = Integer.MIN_VALUE;
+        innerCache[head] = null;
         head++;
     }
 
-    public int peek() {
+    public T peek() {
         int peekValue = Integer.MIN_VALUE;
         if (head == pointer) {
             // we are the end !
-            return peekValue;
+            return null;
         }
         return innerCache[head];
     }

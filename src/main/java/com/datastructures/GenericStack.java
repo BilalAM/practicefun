@@ -15,7 +15,7 @@ public class GenericStack<T> {
 
     public void push(T object) {
         if (pointer == innerCache.length) {
-            innerCache = (T[]) Array.grow(innerCache, GROWTH_FACTOR);
+            innerCache = Array.grow(innerCache, GROWTH_FACTOR);
         }
         innerCache[pointer] = object;
         pointer++;
@@ -38,4 +38,5 @@ public class GenericStack<T> {
             pointer--;
         }
     }
+
 }
